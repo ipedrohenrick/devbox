@@ -1,7 +1,5 @@
 #/bin/sh
 
-mkdir -p $HOME/.config
-
 # Config neovim
 git clone https://github.com/ipedrohenrick/nvim.lua.git $HOME/.config/nvim \
   && npm install -g neovim

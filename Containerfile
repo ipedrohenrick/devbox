@@ -18,12 +18,5 @@ RUN sed -i -e 's/#Color/Color/g' /etc/pacman.conf \
 
 FROM build AS config
 
-ENV STARSHIP_CONFIG=/etc/starship/starship.toml
-
-RUN mkdir -p /etc/{starship,tmux,zsh,nvim} \
-    && starship preset catppuccin_powerline > /etc/starship/starship.toml \
-    && git clone 
-# COPY files config.sh /
-# RUN chmod +x config.sh \
-#     && config.sh \
-#     && rm -rf config.sh files
+COPY skel /etc/skel
+RUN sed -i -e "s/SHELL=.*bash/SHELL=\/bin\/zsh/g" /etc/default/useradd
